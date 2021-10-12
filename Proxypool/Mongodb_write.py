@@ -40,8 +40,14 @@ class MongodbClient:
 				return
 			else:
 				return self.db.shtchi.insert_one(json_structure)
-		# if taps == "":
-		# 	return self.db.shtoa.insert_one(json_structure)
+		if taps == Parameter.SHT_UA.value:
+			if taps == Parameter.SHT_UA.value:
+				tap = {}
+				tap['Real_url'] = json_structure['Real_url']
+				if len(list(self.db.shtua.find(tap).clone())):
+					return
+				else:
+					return self.db.shtua.insert_one(json_structure)
 	def read_Nosql(self,Nosql_name):
 		'''
 		:param Nosql_name:需要查询的数据库的名称

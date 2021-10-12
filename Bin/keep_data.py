@@ -14,12 +14,15 @@ class Keep_data:
 			nosql_name = "shtchi"
 			self.sg.main(url,nosql_name)
 		if url == Parameter.SHT_UA.value:
-			nosql_name = "shtea"
+			nosql_name = "shtua"
 			self.sg.main(url,nosql_name)
 
 
 if __name__ == '__main__':
 	# url = Parameter.SHT_JP.value
-	url = Parameter.SHT_CHI.value
+	# urls = [Parameter.SHT_CHI.value,Parameter.SHT_JP.value,Parameter.SHT_UA.value]
+	urls = [Parameter.SHT_UA.value]
 	obj = Keep_data()
-	obj.writemongo(url)
+	for url in urls:
+		print(url)
+		obj.writemongo(url)

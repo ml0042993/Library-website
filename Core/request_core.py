@@ -5,7 +5,7 @@ from Config.Configuration import Parameter
 class Requert_init:
 	def Get_requers(self,url,proxies=None):
 		try:
-			process_html=requests.get(url,headers=Parameter.HEARD.value,proxies=proxies,timeout=10)
+			process_html=requests.get(url,headers=Parameter.HEARD.value,proxies=proxies,timeout=20)
 
 		# encoding是从http中的header中的charset字段中提取的编码方式，若header中没有charset字段则默认为ISO-8859-1编码模式，则无法解析中文
 			# ，这是乱码的原因。
@@ -16,11 +16,11 @@ class Requert_init:
 			return process_html#返回首页的html源代码
 		except(ConnectionError):
 			print("连接超时，重新获取")
-			self.Get_requers(url)
+			# self.Get_requers(url)
 		except Exception as e:
 			print("未知错误,重新获取")
 			print(e.args)
-			self.Get_requers(url)
+			# self.Get_requers(url)
 	def Get_pyquery(self,process_html):
 		'''
 		将源文件初始化为PyQuery对象

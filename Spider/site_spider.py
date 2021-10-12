@@ -14,13 +14,13 @@ class Site_Getter:
 		self.Yseterday = self.Today - datetime.timedelta(days=1)
 		self.tap = '([^\x00-\xff]+[\x20]*[^\x00-\xff]*|\S*)'
 	def get_html(self,url):
-		new_proxy = Get_proxies().get_proxy()
 		try:
+			new_proxy = Get_proxies().get_proxy()
 			html = self.gp.Get_html(url,new_proxy)
 			return html
 		except Exception as e:
-			print(e.args)
-			print("get_html function is url:" + url)
+			# print(e.args)
+			print("重新获取" + url)
 			self.get_html(url)
 	def construction_sht_base(self,html):
 		ths = html('.new').parent()
@@ -85,6 +85,27 @@ class Site_Getter:
 				print("最后一个链接的日期为：{}".format(save_json[0]))
 				target_url = new_target_url
 				self.dispose_html(target_url)
+
+	def spider_judge_htmls(self,urls,nosql_name):
+		'''
+
+		:param urls: ({'Real_url': 'url地址', 'date_info': '日期'}, True)
+		:param nosql_name: 数据库名称
+		:return:
+		'''
+		# for urls in self.read_mongo(nosql_name):
+		try:
+			url = urls.get("Real_url")
+			find_info = urls
+			# find_info["Real_url"] = url
+			htmls = self.get_html(url)
+			save_message = self.get_sht_detail(htmls)
+			# print(save_message)
+			self.mc.keep_sht_core(nosql_name,find_info,save_message)
+			print("完成获取"+url)
+		except TypeError:
+			self.spider_judge_htmls(urls,nosql_name)
+
 	def main(self,target_url,nosql_name):
 		'''
 		:param target_url:上级
@@ -98,13 +119,11 @@ class Site_Getter:
 			print(e.args)
 
 		for urls in self.read_mongo(nosql_name):
-			url = urls.get("Real_url")
-			find_info = urls
-			# find_info["Real_url"] = url
-			htmls = self.get_html(url)
-			save_message = self.get_sht_detail(htmls)
-			# print(save_message)
-			self.mc.keep_sht_core(nosql_name,find_info,save_message)
+			self.spider_judge_htmls(urls,nosql_name)
+
+
+
+
 
 
 

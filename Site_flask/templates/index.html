@@ -1,0 +1,77 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Flasky</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/chi">chi</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/ua">oa</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="table-responsive">
+        {% for message in messages %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">内容</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="col">标题</th>
+                <td >{{ message.get('Title') }}</td>
+            </tr>
+            <tr>
+                <th scope="col">magnet:</th>
+                <td>{{ message.get('magnet') }}</td>
+            </tr>
+            <tr>
+                <th scope="col">日期:</th>
+                <td>{{ message.get('date_info') }}</td>
+            </tr>
+            <tr>
+                <th scope="col">原地址：</th>
+                <td>{{ message.get('Real_url') }}</td>
+            </tr>
+            {% for img in message.get('ImgsUrl') %}
+            <tr>
+                <th scope="col">图片：</th>
+                <td>
+                    <div class="">
+                        <img  src="{{ img }}" alt="" class="img-responsive center-block">
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <p></p>
+{% endfor %}
+    </div>
+</div>
+
+{% endblock %}

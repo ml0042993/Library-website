@@ -1,13 +1,9 @@
-def aaa():
-	taps = None
-	lst = [1,2,3,2,6,6]
-	for i in lst:
-		taps=i
-		if i == 2:
-			print(i)
-		elif taps == 6:
-			print("aaa")
-		else:continue
+class aa:
+	def __init__(self):
+		self.ss = 1
+	def add(self):
+		self.ss+=1
 
-for i in aaa():
-	print(i)
+obj = aa()
+obj.add()
+print(obj.ss)

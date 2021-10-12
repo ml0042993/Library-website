@@ -20,8 +20,8 @@ class Keep_data:
 
 if __name__ == '__main__':
 	# url = Parameter.SHT_JP.value
-	# urls = [Parameter.SHT_CHI.value,Parameter.SHT_JP.value,Parameter.SHT_UA.value]
-	urls = [Parameter.SHT_UA.value]
+	urls = [Parameter.SHT_CHI.value,Parameter.SHT_JP.value,Parameter.SHT_UA.value]
+	# urls = [Parameter.SHT_UA.value]
 	obj = Keep_data()
 	for url in urls:
 		print(url)

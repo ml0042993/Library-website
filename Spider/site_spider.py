@@ -3,15 +3,15 @@ from Config.Configuration import Parameter
 from Spider.get_proxy import Get_proxies
 from Proxypool.Mongodb_write import MongodbClient
 import re
-import datetime
+
 class Site_Getter:
 	def __init__(self):
 		self.gp = Get_pyqueryhtml()
 		self.mc = MongodbClient()
 		# self.proxy = Get_proxies().get_proxy()
 		# self.TIME = time.strftime("%Y-%m-%d", time.localtime())
-		self.Today = datetime.date.today()
-		self.Yseterday = self.Today - datetime.timedelta(days=1)
+		self.Today = Parameter.TIME_TAP.value
+		self.page = 1
 		self.tap = '([^\x00-\xff]+[\x20]*[^\x00-\xff]*|\S*)'
 	def get_html(self,url):
 		try:
@@ -23,6 +23,11 @@ class Site_Getter:
 			print("重新获取" + url)
 			self.get_html(url)
 	def construction_sht_base(self,html):
+		'''
+		获取子版块的内容，格式化入库内容
+		:param html:
+		:return:
+		'''
 		ths = html('.new').parent()
 		trs = ths('tr').items()
 		judge_tap = None
@@ -35,7 +40,7 @@ class Site_Getter:
 			save_json['date_info'] = tr(".by span span").attr("title")
 			judge_tap = tr(".by span span").attr("title")
 			taps += 1
-			if save_json['date_info'] == str(self.Today):
+			if save_json['date_info'] == self.Today:
 				# print(save_mongo)
 				yield save_json,True
 			else:continue
@@ -43,6 +48,11 @@ class Site_Getter:
 			return self.Today,False
 
 	def get_sht_detail(self,htmls):
+		'''
+		获取帖子实际内容,并进行入库前格式化
+		:param htmls:
+		:return:
+		'''
 		save_message = {}
 		save_message['Title'] = htmls("#thread_subject").text()
 
@@ -65,30 +75,15 @@ class Site_Getter:
 
 		save_message['magnet'] = htmls(".t_f .blockcode li").text()
 		return save_message
-	def read_mongo(self,Nosql_name):
-		for url in self.mc.read_Nosql(Nosql_name):
+	def read_mongo(self,Nosql_name,query_builder):
+		for url in self.mc.read_Nosql(Nosql_name,query_builder):
 			yield url
 
-	def dispose_html(self,html,target_url):
-		'''
-		从mongo中取出要爬取的网页地址
-		:param html: 得到的实际网页document内容
-		:param target_url: 使用上级页面提供查询匹配的条件
-		:return:
-		'''
-		for save_json in self.construction_sht_base(html):
-			print(save_json)
-			if save_json[1] == True:
-				self.mc.mongo_keep_sht(save_json[0], taps=target_url)
-			if save_json[1] == False:
-				# 如果当前页面的最后一个日期是本日，则开始下一页获取
-				print("最后一个链接的日期为：{}".format(save_json[0]))
-				target_url = new_target_url
-				self.dispose_html(target_url)
 
 	def spider_judge_htmls(self,urls,nosql_name):
 		'''
-
+		获取帖子实际html源文档，并调用格式化函数get_sht_detailget_sht_detail()进行格式化，
+		最后调用入库函数keep_sht_core()
 		:param urls: ({'Real_url': 'url地址', 'date_info': '日期'}, True)
 		:param nosql_name: 数据库名称
 		:return:
@@ -106,27 +101,55 @@ class Site_Getter:
 		except TypeError:
 			self.spider_judge_htmls(urls,nosql_name)
 
-	def main(self,target_url,nosql_name):
+	def dispose_html(self,html,taps,home_url):
 		'''
-		:param target_url:上级
-		:param nosql_name:
+		从mongo中取出要爬取的网页地址
+		:param html: 得到的实际网页document内容
+		:param taps: 使用上级页面提供查询匹配的条件
+		:param home_url:'https://rewrfsrewr.xyz/forum-103-{}.html'
 		:return:
 		'''
+		for save_json in self.construction_sht_base(html):
+			print(save_json)
+			if save_json[1] == True:#save_json是一个元组
+				self.mc.mongo_keep_sht(save_json[0], taps=taps)
+			if save_json[1] == False:
+				# 如果当前页面的最后一个日期是本日，则开始下一页获取
+				print("最后一个链接的日期为：{}".format(save_json[0]))
+				self.page += 1
+				self.spider_get_homeurl(home_url)
+
+	def spider_get_homeurl(self,home_url,page=None):
+		"""
+		传入子版块url，获取子版块内的各个帖子的当日url地址
+		:param home_url: 未format的子版块url'https://rewrfsrewr.xyz/forum-103-{}.html'
+		:param page:设置动态页码，提供翻页条件
+		:param taps:taps=home_url是向mongo提供入库的条件同disport_html传入
+		:return: None
+		"""
+		page = self.page
 		try:
-			html = self.get_html(target_url)
-			self.dispose_html(html,target_url)
+			html = self.get_html(home_url.format(page))
+			self.dispose_html(html,taps=home_url,home_url=home_url)
 		except Exception as e:
 			print(e.args)
-
-		for urls in self.read_mongo(nosql_name):
-			self.spider_judge_htmls(urls,nosql_name)
-
-
-
-
-
-
-
+	def spider_allsave_mongo(self,nosql_name):
+		'''
+		遍历mongo中存储的子版块帖子的url列表，逐个传入spider_judge_htmls()获取关键内容，进行构造，再入库
+		:param nosql_name: 数据库名称
+		:return:
+		'''
+		query_builder = {"date_info":self.Today}
+		for urls in self.read_mongo(nosql_name,query_builder=query_builder):
+			self.spider_judge_htmls(urls,nosql_name,)
+	def main(self,home_url,nosql_name):
+		'''
+		:param home_url:未format的子版块url
+		:param nosql_name:数据库名称
+		:return:
+		'''
+		self.spider_get_homeurl(home_url)
+		self.spider_allsave_mongo(nosql_name)
 
 if __name__ == '__main__':
 	obj = Site_Getter()

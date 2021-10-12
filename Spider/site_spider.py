@@ -22,7 +22,7 @@ class Site_Getter:
 			print(e.args)
 			print("get_html function is url:" + url)
 			self.get_html(url)
-	def get_sht_base(self,html):
+	def construction_sht_base(self,html):
 		ths = html('.new').parent()
 		trs = ths('tr').items()
 		judge_tap = None
@@ -69,23 +69,31 @@ class Site_Getter:
 		for url in self.mc.read_Nosql(Nosql_name):
 			yield url
 
-
+	def dispose_html(self,html,target_url):
+		'''
+		从mongo中取出要爬取的网页地址
+		:param html: 得到的实际网页document内容
+		:param target_url: 使用上级页面提供查询匹配的条件
+		:return:
+		'''
+		for save_json in self.construction_sht_base(html):
+			print(save_json)
+			if save_json[1] == True:
+				self.mc.mongo_keep_sht(save_json[0], taps=target_url)
+			if save_json[1] == False:
+				# 如果当前页面的最后一个日期是本日，则开始下一页获取
+				print("最后一个链接的日期为：{}".format(save_json[0]))
+				target_url = new_target_url
+				self.dispose_html(target_url)
 	def main(self,target_url,nosql_name):
 		'''
 		:param target_url:上级
 		:param nosql_name:
 		:return:
 		'''
-		html = self.get_html(target_url)
 		try:
-			for save_json in self.get_sht_base(html):
-				print(save_json)
-				if save_json[1] == True:
-					self.mc.keep_sht(save_json[0],taps=target_url)
-				if save_json[1] == False:
-					#如果当前页面的最后一个日期是本日，则开始下一页获取
-					print("最后一个链接的日期为：{}".format(save_json[0]))
-
+			html = self.get_html(target_url)
+			self.dispose_html(html,target_url)
 		except Exception as e:
 			print(e.args)
 

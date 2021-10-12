@@ -25,7 +25,7 @@ class MongodbClient:
 	# 		else:
 	# 			self.db.shtchi.insert_one(message)
 	# 	else:print("无效存储结构")
-	def keep_sht(self,json_structure,taps=None):
+	def mongo_keep_sht(self,json_structure,taps=None):
 		if taps == Parameter.SHT_JP.value:
 			tap = {}
 			tap['Real_url'] = json_structure['Real_url']

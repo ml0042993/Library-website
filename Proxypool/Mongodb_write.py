@@ -48,13 +48,13 @@ class MongodbClient:
 					return
 				else:
 					return self.db.shtua.insert_one(json_structure)
-	def read_Nosql(self,Nosql_name):
+	def read_Nosql(self,Nosql_name,query_builder):
 		'''
 		:param Nosql_name:需要查询的数据库的名称
 		:return: {'Real_url': 'url地址'}
 		'''
 		# return eval('self.db.{}'.format(Nosql_name)+'.find({},{"Real_url":1,"_id":0})')
-		return self.db.get_collection(Nosql_name).find({},{"Real_url":1,"_id":0})
+		return self.db.get_collection(Nosql_name).find(query_builder,{"Real_url":1,"_id":0})
 	def keep_sht_core(self,Nosql_name,find_info,update_info):
 		# if Nosql_name == 'shtjp':
 		# 	return self.db.shtjp.update(find_info,{"$set":update_info})

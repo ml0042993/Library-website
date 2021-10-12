@@ -9,5 +9,8 @@ class Parameter(Enum):#x枚举需要通过.value取值
 	GETTER_ENABLED = True
 	API_ENABLED = True
 	SHT_HOME = 'https://rewrfsrewr.xyz'
-	# SHT='https://rewrfsrewr.xyz/forum-103-1.html'
-	SHT='https://rewrfsrewr.xyz/forum-2-1.html'
+	SHT_JP='https://rewrfsrewr.xyz/forum-103-1.html'
+	SHT_CHI='https://rewrfsrewr.xyz/forum-2-1.html'
+	SHT_UA=''
+	# MONGOCLIENT = "mongodb://spider:jianxiong@192.168.1.123:27017/spider"
+	MONGOCLIENT = "mongodb://spider:jianxiong@192.168.71.129:27017/spider"

@@ -7,11 +7,19 @@ class Keep_data:
 		self.sg = Site_Getter()
 
 	def writemongo(self,url):
+		if url == Parameter.SHT_JP.value:
+			nosql_name = "shtjp"
+			self.sg.main(url,nosql_name)
+		if url == Parameter.SHT_CHI.value:
+			nosql_name = "shtchi"
+			self.sg.main(url,nosql_name)
+		if url == Parameter.SHT_UA.value:
+			nosql_name = "shtea"
+			self.sg.main(url,nosql_name)
 
-		for mess in self.sg.main(url):
-			self.mc.keep_sht_CHI(mess)
 
 if __name__ == '__main__':
-	url = Parameter.SHT.value
+	# url = Parameter.SHT_JP.value
+	url = Parameter.SHT_CHI.value
 	obj = Keep_data()
 	obj.writemongo(url)

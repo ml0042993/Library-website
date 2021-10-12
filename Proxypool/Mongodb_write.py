@@ -1,12 +1,13 @@
 import pymongo
 from random import choice
+from Config.Configuration import Parameter
 class MongodbClient:
 	def __init__(self):
 		'''
 		初始化
 		连接spider数据库
 		'''
-		self.db = pymongo.MongoClient("mongodb://spider:jianxiong@192.168.1.123:27017/spider")['spider']
+		self.db = pymongo.MongoClient(Parameter.MONGOCLIENT.value)['spider']
 
 	def add(self,proxy,score=50):
 		if len(list(self.db.proxypool.find(proxy).clone())):
@@ -15,16 +16,47 @@ class MongodbClient:
 			proxy["Score"] = score
 			self.db.proxypool.insert_one(proxy)
 
-	def keep_sht_CHI(self,message):
-		if message['Real_url']:
-			tap={}
-			tap['Real_url']=message['Real_url']
+	# def keep_sht_CHI(self,message):
+	# 	if message['Real_url']:
+	# 		tap={}
+	# 		tap['Real_url']=message['Real_url']
+	# 		if len(list(self.db.shtchi.find(tap).clone())):
+	# 			return
+	# 		else:
+	# 			self.db.shtchi.insert_one(message)
+	# 	else:print("无效存储结构")
+	def keep_sht(self,json_structure,taps=None):
+		if taps == Parameter.SHT_JP.value:
+			tap = {}
+			tap['Real_url'] = json_structure['Real_url']
+			if len(list(self.db.shtjp.find(tap).clone())):
+				return
+			else:
+				return self.db.shtjp.insert_one(json_structure)
+		if taps == Parameter.SHT_CHI.value:
+			tap = {}
+			tap['Real_url'] = json_structure['Real_url']
 			if len(list(self.db.shtchi.find(tap).clone())):
 				return
 			else:
-				self.db.shtchi.insert_one(message)
-		else:print("无效存储结构")
-
+				return self.db.shtchi.insert_one(json_structure)
+		# if taps == "":
+		# 	return self.db.shtoa.insert_one(json_structure)
+	def read_Nosql(self,Nosql_name):
+		'''
+		:param Nosql_name:需要查询的数据库的名称
+		:return: {'Real_url': 'url地址'}
+		'''
+		# return eval('self.db.{}'.format(Nosql_name)+'.find({},{"Real_url":1,"_id":0})')
+		return self.db.get_collection(Nosql_name).find({},{"Real_url":1,"_id":0})
+	def keep_sht_core(self,Nosql_name,find_info,update_info):
+		# if Nosql_name == 'shtjp':
+		# 	return self.db.shtjp.update(find_info,{"$set":update_info})
+		# if Nosql_name == 'shtchi':
+		# 	return self.db.shtchi.update(find_info,{"$set":update_info})
+		# if Nosql_name == 'shtea':
+		# 	return self.db.shtea.update(find_info,{"$set":update_info})
+		return self.db.get_collection(Nosql_name).update(find_info,{"$set":update_info})
 
 	def max(self,proxy_ip,Max_score = 100):
 		'''
@@ -82,9 +114,14 @@ class MongodbClient:
 		# result = self.db.proxypool.find({},{'Ip':1,'Port':1,"_id":0}).skip(sk).limit(lim)
 
 		return self.db.proxypool.find({},{'Ip':1,'Port':1,"_id":0})
+
+	def test(self):
+		return self.db.get_collection("shtjp").find({},{"Real_url":1,"_id":0})
 if __name__ == '__main__':
 	obj = MongodbClient()
-	print(obj.all())
+	for i in obj.test():
+		print(i)
+	print(obj.test())
 	# print(len(list(obj.all().clone())))########
 	# taps = math.ceil(len(list(obj.all().clone()))/10)+1
 	# for i in range(1,taps):

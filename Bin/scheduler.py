@@ -1,5 +1,5 @@
 from multiprocessing import Process
-from Bin.api import app
+from Proxypool.Proxypool_api import app
 from Proxypool.Proxypool_saveproxy import Getter
 from Proxypool.Proxypool_tester import Tester
 from Config.Configuration import Parameter

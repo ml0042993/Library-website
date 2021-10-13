@@ -1,4 +1,4 @@
-from Proxypool.Mongodb_write import MongodbClient
+from Core.Core_Mongodb import MongodbClient
 from Config.Configuration import Parameter as para
 import aiohttp
 import asyncio
@@ -15,7 +15,7 @@ class Tester:
 				if isinstance(proxy_ip,bytes):
 					proxy_ip = proxy_ip.decode('utf-8')
 				real_proxy = 'http://{}:{}'.format(proxy_ip,port)
-				async with session.get(para.TEST_URL.value,proxy=real_proxy,timeout=10) as response:
+				async with session.get(para.TEST_URL_SHT.value, proxy=real_proxy, timeout=10) as response:
 					print(response.status)
 					if response.status == 200:
 						self.mongo.max(proxy_ip)

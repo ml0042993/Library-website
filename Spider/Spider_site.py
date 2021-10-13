@@ -1,7 +1,7 @@
-from Core.pyquery_date import Get_pyqueryhtml
+from Core.Core_pyquery import Get_pyqueryhtml
 from Config.Configuration import Parameter
-from Spider.get_proxy import Get_proxies
-from Proxypool.Mongodb_write import MongodbClient
+from Spider.Spider_getproxy import Get_proxies
+from Core.Core_Mongodb import MongodbClient
 import re
 
 class Site_Getter:

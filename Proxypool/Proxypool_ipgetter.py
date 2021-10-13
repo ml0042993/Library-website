@@ -1,4 +1,4 @@
-from Core.pyquery_date import Get_pyqueryhtml
+from Core.Core_pyquery import Get_pyqueryhtml
 class ProxyMetaclass(type):
 	def __new__(cls, name, bases,attrs):
 		count = 0

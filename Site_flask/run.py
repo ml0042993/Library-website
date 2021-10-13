@@ -1,6 +1,6 @@
 from flask import Flask, render_template,g
 from flask_bootstrap import Bootstrap
-from Proxypool.Mongodb_write import MongodbClient
+from Core.Core_Mongodb import MongodbClient
 app = Flask(__name__)
 
 bootstrap = Bootstrap(app)

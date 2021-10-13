@@ -4,9 +4,19 @@
     <list default="true" id="3ac6de46-889f-44a9-8678-8631ee9e1fe4" name="Default Changelist" comment="完成自动翻页">
       <change beforePath="$PROJECT_DIR$/../EXAM/Answer/QtApp/excle_init.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/request_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/request_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxypool/IP_Getter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxypool/IP_Getter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxypool/Mongodb_write.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxypool/Mongodb_write.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bin/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bin/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bin/keep_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spider/Spider_keepdata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bin/save_proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxypool/Proxypool_saveproxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bin/scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bin/scheduler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/Configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Config/Configuration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/pyquery_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Core_pyquery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/request_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Core_Request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxypool/IP_Getter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxypool/Proxypool_ipgetter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxypool/Mongodb_write.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Core_Mongodb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxypool/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxypool/Proxypool_tester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Site_flask/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/Site_flask/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spider/get_proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spider/Spider_getproxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spider/site_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spider/Spider_site.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,73 +41,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Spider/site_spider.py">
+        <entry file="file://$PROJECT_DIR$/Spider/Spider_keepdata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1281">
-              <caret line="65" column="46" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
+            <state relative-caret-position="399">
+              <caret line="22" selection-start-line="22" selection-end-line="27" selection-end-column="27" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Site_flask/run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Site_flask/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="73" column="10" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Proxypool/IP_Getter.py">
+        <entry file="file://$PROJECT_DIR$/Bin/scheduler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1281">
-              <caret line="106" column="31" lean-forward="true" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bin/keep_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="630">
+              <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
               <folding>
-                <element signature="e#0#49#0" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Core/request_core.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="19" column="112" selection-start-line="19" selection-start-column="112" selection-end-line="19" selection-end-column="112" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Proxypool/Mongodb_write.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="125" column="78" lean-forward="true" selection-start-line="125" selection-start-column="78" selection-end-line="125" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -105,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config/Configuration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="12" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="12" />
+            <state relative-caret-position="226">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -115,12 +77,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bin/scheduler.py">
+        <entry file="file://$PROJECT_DIR$/Proxypool/Proxypool_tester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+            <state relative-caret-position="357">
+              <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,15 +110,12 @@
         <option value="$PROJECT_DIR$/bin/api.py" />
         <option value="$PROJECT_DIR$/bin/scheduler.py" />
         <option value="$PROJECT_DIR$/Bin/save_proxy.py" />
-        <option value="$PROJECT_DIR$/Bin/scheduler.py" />
-        <option value="$PROJECT_DIR$/Proxypool/tester.py" />
         <option value="$PROJECT_DIR$/Spider/get_proxy.py" />
         <option value="$PROJECT_DIR$/Spider/keep_data.py" />
         <option value="$PROJECT_DIR$/Spider/site-spider.py" />
         <option value="$PROJECT_DIR$/Core/pyquery_date.py" />
         <option value="$PROJECT_DIR$/MaxRetryError异常的原因" />
         <option value="$PROJECT_DIR$/Bin/keep_data.py" />
-        <option value="$PROJECT_DIR$/Config/Configuration.py" />
         <option value="$PROJECT_DIR$/aaa.py" />
         <option value="$PROJECT_DIR$/Spider/site_spider.py" />
         <option value="$PROJECT_DIR$/Site_flask/templates/ua.html" />
@@ -166,10 +125,14 @@
         <option value="$PROJECT_DIR$/Proxypool/IP_Getter.py" />
         <option value="$PROJECT_DIR$/Core/request_core.py" />
         <option value="$PROJECT_DIR$/Proxypool/Mongodb_write.py" />
+        <option value="$PROJECT_DIR$/Proxypool/tester.py" />
+        <option value="$PROJECT_DIR$/Proxypool/save_proxy.py" />
+        <option value="$PROJECT_DIR$/Config/Configuration.py" />
+        <option value="$PROJECT_DIR$/Bin/scheduler.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="151" />
     <option name="y" value="120" />
     <option name="width" value="1616" />
@@ -236,18 +199,21 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Site_flask/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Spider" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\python_work\Library-website\Spider" />
+      <recent name="D:\python_work\Library-website\Proxypool" />
+      <recent name="D:\python_work\Library-website\Core" />
+      <recent name="D:\python_work\Library-website\" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\python_work\Library-website\Site_flask\templates" />
       <recent name="D:\python_work\Library-website\Site_flask" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\python_work\Library-website\" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -320,7 +286,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bin/keep_data.py" />
+      <option name="SCRIPT_NAME" value="D:\python_work\Library-website\Spider\Spider_keepdata.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -403,7 +369,7 @@
       <workItem from="1633699338469" duration="785000" />
       <workItem from="1633966170641" duration="3608000" />
       <workItem from="1634041401489" duration="24081000" />
-      <workItem from="1634117312105" duration="5780000" />
+      <workItem from="1634117312105" duration="7667000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1633628585130</created>
@@ -454,11 +420,18 @@
       <option name="project" value="LOCAL" />
       <updated>1634066677452</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="新增多个代理获取地址">
+      <created>1634129246879</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1634129246879</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134070000" />
+    <option name="totallyTimeSpent" value="135957000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -470,14 +443,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="151" y="120" width="1616" height="916" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32197943" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26705757" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.38735178" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32925472" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.07897664" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933258" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -494,7 +468,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
-      <window_info anchor="right" id="Mongo Explorer" order="5" visible="true" weight="0.08290488" />
+      <window_info anchor="right" id="Mongo Explorer" order="5" visible="true" weight="0.06876332" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,14 +482,15 @@
     <MESSAGE value="优化查询条件，更改配置文件" />
     <MESSAGE value="完成自动翻页" />
     <MESSAGE value="利用flask初步实现数据库内容展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="利用flask初步实现数据库内容展示" />
+    <MESSAGE value="新增多个代理获取地址" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增多个代理获取地址" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Bin/scheduler.py</url>
-          <line>37</line>
+          <line>44</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
@@ -608,16 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Proxypool/tester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../python-spider/Lib/site-packages/requests/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
@@ -625,8 +590,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Spider/keep_data.py" />
-    <entry file="file://$PROJECT_DIR$/Spider/get_proxy.py">
+    <entry file="file://$PROJECT_DIR$/Spider/Spider_keepdata.py" />
+    <entry file="file://$PROJECT_DIR$/Spider/Spider_getproxy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
@@ -634,20 +599,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Bin/log.txt" />
-    <entry file="file://$PROJECT_DIR$/Core/pyquery_date.py">
+    <entry file="file://$PROJECT_DIR$/Core/Core_pyquery.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bin/save_proxy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -702,73 +657,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bin/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Site_flask/chi.html" />
     <entry file="file://$PROJECT_DIR$/Site_flask/templates/ua.html" />
     <entry file="file://$PROJECT_DIR$/Site_flask/templates/chi.html" />
-    <entry file="file://$PROJECT_DIR$/Spider/site_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1281">
-          <caret line="65" column="46" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Site_flask/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="808">
           <caret line="73" column="10" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Core/request_core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="19" column="112" selection-start-line="19" selection-start-column="112" selection-end-line="19" selection-end-column="112" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bin/keep_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bin/scheduler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/Configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -779,17 +674,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Proxypool/Mongodb_write.py">
+    <entry file="file://$PROJECT_DIR$/Proxypool/Proxypool_ipgetter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="125" column="78" lean-forward="true" selection-start-line="125" selection-start-column="78" selection-end-line="125" selection-end-column="78" />
+        <state relative-caret-position="252">
+          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Proxypool/IP_Getter.py">
+    <entry file="file://$PROJECT_DIR$/Spider/Spider_site.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1281">
-          <caret line="106" column="31" lean-forward="true" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
+        <state relative-caret-position="357">
+          <caret line="65" column="46" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Core_Request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="19" column="112" selection-start-line="19" selection-start-column="112" selection-end-line="19" selection-end-column="112" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Core_Mongodb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bin/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proxypool/Proxypool_saveproxy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proxypool/Proxypool_tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/-1759880620/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="163" column="15" selection-start-line="163" selection-start-column="15" selection-end-line="163" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Spider/Spider_keepdata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" selection-start-line="22" selection-end-line="27" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/Configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bin/scheduler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

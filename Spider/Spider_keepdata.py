@@ -1,5 +1,5 @@
-from Proxypool.Mongodb_write import MongodbClient
-from Spider.site_spider import Site_Getter
+from Core.Core_Mongodb import MongodbClient
+from Spider.Spider_site import Site_Getter
 from Config.Configuration import Parameter
 class Keep_data:
 	def __init__(self):

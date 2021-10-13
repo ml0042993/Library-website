@@ -1,5 +1,5 @@
-from Proxypool.IP_Getter import Proxy_Getter
-from Proxypool.Mongodb_write import MongodbClient
+from Proxypool.Proxypool_ipgetter import Proxy_Getter
+from Core.Core_Mongodb import MongodbClient
 class Getter:
 	def __init__(self):
 		self.pg = Proxy_Getter()

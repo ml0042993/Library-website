@@ -1,5 +1,5 @@
 from flask import Flask,g
-from Proxypool.Mongodb_write import MongodbClient
+from Core.Core_Mongodb import MongodbClient
 
 __all__ = ["app"]
 app = Flask(__name__)

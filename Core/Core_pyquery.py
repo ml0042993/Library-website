@@ -1,4 +1,4 @@
-from Core.request_core import Requert_init
+from Core.Core_Request import Requert_init
 
 class Get_pyqueryhtml:
 	def __init__(self):

@@ -67,3 +67,42 @@ class Proxy_Getter(object,metaclass=ProxyMetaclass):
 					yield proxy
 		print('当前网址获取完成')
 
+	def __ip_Get_kuaidaili(self, pages=10):
+		home_url = "https://www.kuaidaili.com/free/inha/{}/"
+		urls = [home_url.format(page) for page in range(1,pages+1)]
+		for url in urls:
+			print("开始获取" + url)
+			html = self.gp.Get_html(url)
+			# print(html)
+			if html:
+				trs = html('.list table tr').items()
+				for tr in trs:
+					proxy = {}
+					proxy['Ip'] = tr.find("td:nth-child(1)").text()
+					proxy['Port'] = tr.find("td:nth-child(2)").text()
+					proxy['Type'] = tr.find("td:nth-child(3)").text()
+					proxy['Link'] = tr.find("td:nth-child(4)").text()
+					if len(proxy['Ip']) >= 16 or len(proxy['Ip'])<7:
+						continue
+					yield proxy
+		print('当前网址获取完成')
+	def __ip_Get_ihuan(self, pages=None):
+		home_url = "https://ip.ihuan.me/?page={}"
+		list_page = ['b97827cc','4ce63706','5crfe930','f3k1d581','ce1d45977','881aaf7b5','eas7a436','981o917f5','2d28bd81a','a42g5985d','came0299']
+		urls = [home_url.format(page) for page in list_page]
+		for url in urls:
+			print("开始获取" + url)
+			html = self.gp.Get_html(url)
+			# print(html)
+			if html:
+				trs = html('.table-responsive table tr').items()
+				for tr in trs:
+					proxy = {}
+					proxy['Ip'] = tr.find("td:nth-child(1)").text()
+					proxy['Port'] = tr.find("td:nth-child(2)").text()
+					proxy['Type'] = tr.find("td:nth-child(7)").text()
+					proxy['Link'] = "HTTP"
+					if len(proxy['Ip']) >= 16 or len(proxy['Ip'])<7:
+						continue
+					yield proxy
+		print('当前网址获取完成')

@@ -121,7 +121,7 @@ class MongodbClient:
 
 		return self.db.proxypool.find({},{'Ip':1,'Port':1,"_id":0})
 	def mongo_search(self,nosql_name):
-		return self.db.get_collection(nosql_name).find({},{"_id":0})
+		return self.db.get_collection(nosql_name).find({'date_info':Parameter.TIME_TAP.value},{"_id":0})
 	def test(self):
 		return self.db.get_collection("shtjp").find({},{"Real_url":1,"_id":0})
 if __name__ == '__main__':

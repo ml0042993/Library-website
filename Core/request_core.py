@@ -17,7 +17,7 @@ class Requert_init:
 			# ，这是乱码的原因。
 		# apparent_encoding会从网页的内容中分析网页编码的方式，所以apparent_encoding比encoding更加准确。当网页出现乱码时可以把
 			# apparent_encoding的编码格式赋值给encoding。
-			process_html = session.get(url,headers=Parameter.HEARD.value,proxies=proxies,verify=False)
+			process_html = session.get(url,headers=Parameter.HEARD.value,proxies=proxies,verify=False,timeout=20)
 			process_html.encoding = process_html.apparent_encoding#解决乱码问题
 			return process_html#返回首页的html源代码
 		except(ConnectionError):

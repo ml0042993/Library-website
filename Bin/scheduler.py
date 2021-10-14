@@ -49,6 +49,7 @@ class Scheduler:
 		if Parameter.SPIDER_ENABLED.value:
 			keeper_process = Process(target=self.scheduler_keepdata)
 			keeper_process.start()
+			keeper_process.close()
 			# tester_process.join()
 		getter_process.join()
 		api_process.join()

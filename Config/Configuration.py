@@ -13,10 +13,10 @@ class Parameter(Enum):#x枚举需要通过.value取值
 	TEST_URL_SHT = "https://rewrfsrewr.xyz/"
 
 	#进程的开关变量
-	SPIDER_ENABLED = True
-	TESTER_ENABLED = True
+	SPIDER_ENABLED = False
+	TESTER_ENABLED = False
 	GETTER_ENABLED = True
-	API_ENABLED = True
+	API_ENABLED = False
 
 
 	SHT_HOME = 'https://rewrfsrewr.xyz'

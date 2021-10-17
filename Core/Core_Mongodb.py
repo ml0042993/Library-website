@@ -2,19 +2,19 @@ import pymongo
 from random import choice
 from Config.Configuration import Parameter
 class MongodbClient:
-	def __init__(self):
+	def __init__(self,set_name=None):
 		'''
 		初始化
 		连接spider数据库
 		'''
 		self.db = pymongo.MongoClient(Parameter.MONGOCLIENT.value)['spider']
-
+		self.set_name = set_name
 	def add(self,proxy,score=50):
-		if len(list(self.db.proxypool.find(proxy).clone())):
+		if len(list(self.db.get_collection(self.set_name).find(proxy).clone())):
 			return
 		else:
 			proxy["Score"] = score
-			self.db.proxypool.insert_one(proxy)
+			self.db.get_collection(self.set_name).insert_one(proxy)
 
 	# def keep_sht_CHI(self,message):
 	# 	if message['Real_url']:

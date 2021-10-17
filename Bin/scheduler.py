@@ -1,12 +1,23 @@
 from multiprocessing import Process
 from Proxypool.Proxypool_api import app
-from Proxypool.Proxypool_saveproxy import Getter
+from Proxypool.Proxypool_saveproxy import thread_Getter
 from Proxypool.Proxypool_tester import Tester
 from Config.Configuration import Parameter
 from Spider.Spider_keepdata import Keep_data
 import time
 
 class Scheduler:
+	def scheduler_getter(self,cycle = 1800):
+		# getter = thread_Getter()
+		while True:
+			print("开始抓取代理")
+			set_names = ['shtproxy', 'jbsproxy']
+			for set_name in set_names:
+				t = thread_Getter(args=set_name)
+				t.start()
+			print("完成抓取代理")
+			time.sleep(cycle)
+
 	def scheduler_tester(self,cycle = 40):
 		tester = Tester()
 		while True:
@@ -14,12 +25,6 @@ class Scheduler:
 			tester.run()
 			time.sleep(cycle)
 
-	def scheduler_getter(self,cycle = 1800):
-		getter = Getter()
-		while True:
-			print("开始抓取代理")
-			getter.run()
-			time.sleep(cycle)
 	def scheduler_keepdata(self):
 		keeper = Keep_data()
 		urls = [Parameter.SHT_CHI.value, Parameter.SHT_JP.value, Parameter.SHT_UA.value]

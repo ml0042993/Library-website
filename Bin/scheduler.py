@@ -1,7 +1,7 @@
 from multiprocessing import Process
 from Proxypool.Proxypool_api import app
-from Proxypool.Proxypool_saveproxy import thread_Getter
-from Proxypool.Proxypool_tester import Tester
+from Proxypool.Proxypool_saveproxy import thread_Getter as gtg
+from Proxypool.Proxypool_tester import thread_Getter as ttg
 from Config.Configuration import Parameter
 from Spider.Spider_keepdata import Keep_data
 import time
@@ -11,18 +11,20 @@ class Scheduler:
 		# getter = thread_Getter()
 		while True:
 			print("开始抓取代理")
-			set_names = ['shtproxy', 'jbsproxy']
+			set_names = Parameter.SET_NAME.value
 			for set_name in set_names:
-				t = thread_Getter(args=set_name)
+				t = gtg(args=set_name)
 				t.start()
 			print("完成抓取代理")
 			time.sleep(cycle)
 
 	def scheduler_tester(self,cycle = 40):
-		tester = Tester()
 		while True:
 			print('测试器开始运行')
-			tester.run()
+			set_names = Parameter.SET_NAME.value
+			for set_name in set_names:
+				t = ttg(args=set_name)
+				t.start()
 			time.sleep(cycle)
 
 	def scheduler_keepdata(self):

@@ -11,10 +11,11 @@ class Parameter(Enum):#x枚举需要通过.value取值
 	# TEST_URL_BAD = "https://www.baidu.com/"
 
 	TEST_URL_SHT = "https://rewrfsrewr.xyz/"
-
+	TEST_URL_JBS = "https://www.javbus.com/"
+	SET_NAME = ['shtproxy', 'jbsproxy']
 	#进程的开关变量
 	SPIDER_ENABLED = False
-	TESTER_ENABLED = False
+	TESTER_ENABLED = True
 	GETTER_ENABLED = True
 	API_ENABLED = False
 

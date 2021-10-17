@@ -70,20 +70,21 @@ class MongodbClient:
 		:param Max_score: 如果能够代理可以连通则设置为100
 		:return:
 		'''
-		print("代理ip为{}，目前可用，设置可用数值为{}".format(proxy_ip,Max_score))
+		# print("代理ip为{}，目前可用，设置可用数值为{}".format(proxy_ip,Max_score))
 
-		return self.db.proxypool.update_one({"Ip": proxy_ip}, {"$set": {"Score": Max_score}})
+		return self.db.get_collection(self.set_name).update_one({"Ip": proxy_ip}, {"$set": {"Score": Max_score}})
 
 	def decrease(self,proxy_ip,Min_score = 10):
-		score = self.db.proxypool.find({"Ip": proxy_ip},{'Score':1,"_id":0})[0]["Score"]
-
-		if score >= Min_score:
-			print("代理ip为{}，目前不可用，score数值为{}".format(proxy_ip, score))
-			return self.db.proxypool.update_one({"Ip": proxy_ip},{"$inc": {"Score": -10}})
-		else:
-			print("代理ip为{}，目前不可用，score数值为{},已经移除".format(proxy_ip, score))
-			return self.db.proxypool.remove({"Score":{"$lt":10}})
-
+		score = self.db.get_collection(self.set_name).find({"Ip": proxy_ip},{'Score':1,"_id":0})[0]["Score"]
+		try:
+			if score >= Min_score:
+				# print("代理ip为{}，目前不可用，score数值为{}".format(proxy_ip, score))
+				return self.db.get_collection(self.set_name).update_one({"Ip": proxy_ip},{"$inc": {"Score": -10}})
+			else:
+				# print("代理ip为{}，目前不可用，score数值为{},已经移除".format(proxy_ip, score))
+				return self.db.get_collection(self.set_name).remove({"Score":{"$lt":10}})
+		except Exception as e:
+			print(e.args)
 
 	def random(self):
 		proxies_ip=[]
@@ -108,7 +109,7 @@ class MongodbClient:
 				raise (IndexError,TypeError)
 
 	def count(self):
-		return len(list(self.db.proxypool.find({})))
+		return len(list(self.db.get_collection(self.set_name).find({})))
 
 	def all(self):
 		'''
@@ -119,7 +120,7 @@ class MongodbClient:
 		'''
 		# result = self.db.proxypool.find({},{'Ip':1,'Port':1,"_id":0}).skip(sk).limit(lim)
 
-		return self.db.proxypool.find({},{'Ip':1,'Port':1,"_id":0})
+		return self.db.get_collection(self.set_name).find({},{'Ip':1,'Port':1,"_id":0})
 	def mongo_search(self,nosql_name):
 		return self.db.get_collection(nosql_name).find({'date_info':Parameter.TIME_TAP.value},{"_id":0})
 	def test(self):

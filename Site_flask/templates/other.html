@@ -1,0 +1,41 @@
+<div class="table-responsive">
+    {% for message in messages %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">内容</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="col">标题</th>
+            <td >{{ message.get('Title') }}</td>
+        </tr>
+        <tr>
+            <th scope="col">magnet:</th>
+            <td>{{ message.get('magnet') }}</td>
+        </tr>
+        <tr>
+            <th scope="col">日期:</th>
+            <td>{{ message.get('date_info') }}</td>
+        </tr>
+        <tr>
+            <th scope="col">原地址：</th>
+            <td>{{ message.get('Real_url') }}</td>
+        </tr>
+        {% for img in message.get('ImgsUrl') %}
+        <tr>
+            <th scope="col">图片：</th>
+            <td>
+                <div class="">
+                    <img  src="{{ img }}" alt="" class="img-responsive center-block">
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+<p></p>
+{% endfor %}

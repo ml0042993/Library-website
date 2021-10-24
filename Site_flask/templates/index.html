@@ -9,7 +9,8 @@
     <script src="https://www.itxst.com/package/bootstrap-datepicker-1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://www.itxst.com/package/bootstrap-datepicker-1.9.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
     <link href="https://www.itxst.com/package/bootstrap-datepicker-1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
-
+    <link href="{{ url_for("static",filename = "css/mycss.css") }}" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
 {% endblock %}
 {% block navbar %}
 <div class="navbar navbar-inverse" role="navigation">
@@ -99,6 +100,7 @@
 
 {% endblock %}
 {% block scripts %}
+    <script src="{{ url_for("static",filename = "js/myjs.js") }}" type="text/javascript"></script>
 <script type="text/javascript">
 var ops = {
             todayHighlight: true, //设置当天日期高亮
